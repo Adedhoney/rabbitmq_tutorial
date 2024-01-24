@@ -1,8 +1,13 @@
 import ampq from "amqplib/callback_api.js"
 
+import dotenv from "dotenv"
+dotenv.config()
+const ampqURL = process.env.AMPQ_URL
+
 const publishWork = () => {
+    if (!ampqURL) return
     ampq.connect(
-        "amqps://tmntwmyh:Us8-2AL1iruhag_L5oNVo_d71Tqw9oeR@chimpanzee.rmq.cloudamqp.com/tmntwmyh",
+        ampqURL,
         (err, connection) => {
             if (err) {
                 throw err
@@ -26,8 +31,9 @@ const publishWork = () => {
     )
 }
 const recieveBroadcast = () => {
+    if (!ampqURL) return
     ampq.connect(
-        "amqps://tmntwmyh:Us8-2AL1iruhag_L5oNVo_d71Tqw9oeR@chimpanzee.rmq.cloudamqp.com/tmntwmyh",
+        ampqURL,
         (err, connection) => {
             if (err) {
                 throw err

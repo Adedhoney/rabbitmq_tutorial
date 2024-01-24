@@ -6,5 +6,5 @@ import { publisher, reciever } from "./my_test.js"
 // testRecieve()
 // publishWork()
 // recieveBroadcast()
-publisher("doyinadeyemi2000@gmail.com", "welcomeEmail")
+publisher("example@gmail.com", "welcomeEmail")
 // reciever()
